@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Joes World</title>
+    <link rel="icon" href="media/ico/favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="style.css?v=8">
+    <style>
+    </style>
+
+    <!----CODE FOR THE SHUFFLE BOX-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Add the Firebase SDK scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    <script src="scripts/seppe.js?v=3"></script>
+    <script src="scripts/shufflebox.js?v=3"></script>
+    <script src="scripts/back-map.js?v=3"></script>
+    <script src="scripts/firebase-megascript.js"></script>
+
+
+
+
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <style>
+        #status {
+            font-weight: bold;
+        }
+
+            #status::before {
+                content: "Status: ";
+            }
+
+            #status[data-status="offline"] {
+                color: red;
+            }
+
+            #status[data-status="online"] {
+                color: green;
+            }
+
+
+    </style>
+
+</head>
+<body>
+    <!--Firebase Authenticaion Information-->
+    <div class="header-login">
+        <div class="account-dropdown">
+            <button class="account-btn" id="accountBtn">Login</button>
+            <button id="logoutBtn" style="display: none;">Logout</button>
+            <div class="dropdown-content" id="dropdownContent">
+                <div id="userDisplay" class="user-info" style="display:none;"></div>
+            </div>
+        </div>
+        <div id="loginStatus" style="display: none; align-items: center;">
+            <div style="width: 10px; height: 10px; background-color: green; border-radius: 50%; margin-right: 5px;"></div>
+            <div id="loginStatusText" style="color: green;">Logged in</div>
+
+        </div>
+    </div>
+    <div id="loginFormContainer" class="login-form-container draggable">
+        <form id="loginForm">
+            <h2>Login</h2>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+
+    <center>
+        <div class="container">
+
+
+            <div class="header">
+                <iframe src="pages/header-content.html?v=2" frameborder="0" scrolling="no" class="header-content-iframe"></iframe>
+
+
+            </div>
+
+
+
+            <div class="content-large">
+
+
+                <!--If the user is not logged in, offer them to create an account-->
+                <div id="notLoggedInMessage" style="display: none; border-top:none;border-right:none;border-left:none;">
+
+                    <!--
+    <h1><span class="word-seppe">New To JoesWorld.Online?</span></h1>
+    <h1><span class="word-seppe">Create An Account Today!</span></h1>
+
+    To Create an account, click <a href="pages/account-apply.html">here</a>
+
+    -->
+                        <p>Only a Loser wouldn't be logged in.</p>
+                </div>
+
+
+                <h1>BEHOLD! Updates to the <a href="pages/beegfish.html">Beeg Fish</a></h1>
+                <p>Try Rolling a Dice!</p>
+                <p>or is it technically spinning a dice?</p>
+
+                <!--Gallery Shuffle-->
+                
+                    <center>
+                        <style>
+                            .gallery img {
+                                max-width: 200px;
+                                max-height: 200px;
+                                margin: 10px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        </style>
+                        <div class="gallery" style="max-width: 20rem; margin-top: 5rem; border-right: none; border-left:none;border-bottom:none;"></div>
+                        <p>Submit your own art on <br /><a href="pages/board.html">The Board</a></p>
+              
+
+</center>
+
+            </div>
+
+            <!--Submissions Box-->
+            <div>
+                <center>
+                    <b>Submission Box</b></br>
+                    <i style="font-size:70%;">What Should be added next to Joe's Basement?</i><br />
+                    <!-- Textbox and Button -->
+                    <input type="text" id="sub-text" style="width: 10vw;">
+                    <button onclick="addSubmission()">Add</button>
+                    <!--The Refresh button works, but is currently not needed <button onclick="refreshDisplay()">Refresh</button>-->
+                    <!-- Display Box -->
+                    <div id="displayBox" style="border: none; font-size: .8rem;"></div>
+                    <p style="font-size: 40%; margin: 0px;">Total: <span id="counter">0</span></p>
+                </center>
+            </div>
+
+
+
+
+            <!--HTML Shuffle, it loads a differnet page on every time you load-->
+
+
+
+            <div id="htmlshufflebox" style="max-width: 30vw;"></div>
+
+
+
+
+            <div class="footer">
+                <iframe src="pages/footer.html" frameborder="0" width="100%" class="footer-iframe">
+                </iframe>
+
+
+
+            </div>
+
+
+
+        </div>
+    </center>
+
+
+</body>
+</html>    
