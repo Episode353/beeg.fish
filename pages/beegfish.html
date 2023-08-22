@@ -199,8 +199,12 @@
                         <br />
                         <input type="number" id="speedFalloff" min="0" max="1" step="0.001" value="0.98">
                     </div>
+
+                    <label for="randomDicePosition">Dice Shuffle:</label>
+                    <input type="checkbox" id="randomDicePosition" onchange="toggleRandomDicePosition()">
                 </div>
 
+                
 
 
             </div>
@@ -410,6 +414,17 @@
 
 
 
+        var isRandomDicePosition = false; // Flag to track randomness
+
+        function toggleRandomDicePosition() {
+            isRandomDicePosition = !isRandomDicePosition;
+            if (isRandomDicePosition) {
+                changeBackgroundToDice();
+            } else {
+                changeBackground();
+            }
+        }
+
         function generateDiceBackground(diceSections) {
             var canvas = document.createElement("canvas");
             canvas.width = canvas.height = 500; // Set the canvas size
@@ -440,12 +455,21 @@
             // Calculate font size based on the number of segments
             var fontSize = Math.min(70, 700 / diceSections); // Adjust the max font size as needed
 
+            var colorsCopy = colors.slice(); // Create a copy of the colors array
+            var labels = Array.from({ length: diceSections }, (_, i) => i + 1); // Create an array of labels
+
+            if (isRandomDicePosition) {
+                // Shuffle the colors and labels arrays for random dice positions
+                shuffleArray(colorsCopy);
+                shuffleArray(labels);
+            }
+
             for (var i = 0; i < diceSections; i++) {
                 context.beginPath();
                 context.moveTo(centerX, centerY);
                 context.arc(centerX, centerY, radius, i * angle, (i + 1) * angle);
                 context.lineTo(centerX, centerY);
-                context.fillStyle = colors[i % colors.length];
+                context.fillStyle = colorsCopy[i % colors.length]; // Use the shuffled colors
                 context.fill();
 
                 // Calculate label position
@@ -459,7 +483,9 @@
                 context.font = "bold " + fontSize + "px Arial"; // Set font size
                 context.textAlign = "center";
                 context.textBaseline = "middle";
-                context.fillText((i + 1).toString(), labelX, labelY);
+                context.fillText(labels[i].toString(), labelX, labelY); // Use the shuffled labels
+
+
             }
 
             var dataUrl = canvas.toDataURL();
@@ -478,7 +504,13 @@
 
 
 
-
+        // Function to shuffle an array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
 
 
 
