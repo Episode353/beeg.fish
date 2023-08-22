@@ -34,14 +34,11 @@
         @keyframes glow {
             0%, 100% {
                 filter: drop-shadow(0 0 20px white);
-        
             }
 
             50% {
                 filter: drop-shadow(0 0 35px white);
-          
             }
-        
         }
 
 
@@ -54,7 +51,6 @@
             z-index: 0;
             pointer-events: none;
             user-select: none;
-
         }
 
         #counter {
@@ -95,7 +91,6 @@
         label {
             font-size: 14px;
             font-weight: bold;
-            
         }
 
         input {
@@ -133,15 +128,33 @@
         .grid-container {
             display: grid;
             grid-template-columns: auto auto;
-            
         }
 
 
         .grid-item {
-
         }
-
     </style>
+
+    <script>
+        var isControlsMinimized = false;
+
+        function minimizeControls() {
+            var bfControls = document.getElementById('bf-controls');
+
+            // Toggle the minimized state
+            isControlsMinimized = !isControlsMinimized;
+
+            // Update the CSS properties based on the minimized state
+            if (isControlsMinimized) {
+                bfControls.style.height = "2rem"; // Set the desired minimized height
+                bfControls.style.overflow = "hidden"; // Hide overflowing content
+            } else {
+                bfControls.style.height = "auto"; // Reset the height
+                bfControls.style.overflow = "visible"; // Reset the overflow
+            }
+        }
+    </script>
+
 </head>
 <body class="no-vignette">
 
@@ -156,10 +169,15 @@
 
 
 
+    
+
 
     <div id="bf-controls">
+
+       
         <center>
-            
+            <!-- Add the minus button -->
+            <button id="minimizeButton" onclick="minimizeControls()" style="width: 2rem;height: 2rem;  left:-40%; position: relative; font-size: 2rem; background-color: green;">-</button>
             <div class="grid-container">
                 <!--Grid  Box 1-->
                 <div class="grid-item" id="grid-item1">
@@ -204,7 +222,7 @@
                     <input type="checkbox" id="randomDicePosition" onchange="toggleRandomDicePosition()">
                 </div>
 
-                
+
 
 
             </div>
@@ -526,35 +544,35 @@
 
         clearButton.addEventListener("click", clearCanvas);
     </script>
-<script>
-    // Parse the query parameters from the URL
-    const urlParams = new URLSearchParams(window.location.search);
+    <script>
+        // Parse the query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
 
-    // Get the "dice" and "background" parameter values from the query parameters
-    const diceParam = urlParams.get('dice');
-    const backgroundParam = urlParams.get('background');
+        // Get the "dice" and "background" parameter values from the query parameters
+        const diceParam = urlParams.get('dice');
+        const backgroundParam = urlParams.get('background');
 
-    // Set the default dice value if the parameter is not provided or invalid
-    const defaultDiceValue = 2;
-    const diceInput = parseInt(diceParam) || defaultDiceValue;
+        // Set the default dice value if the parameter is not provided or invalid
+        const defaultDiceValue = 2;
+        const diceInput = parseInt(diceParam) || defaultDiceValue;
 
-    // Set the initial dice value in the input field
-    document.getElementById("diceInput").value = diceInput;
+        // Set the initial dice value in the input field
+        document.getElementById("diceInput").value = diceInput;
 
-    // Set the default background image if the parameter is not provided
-    const defaultBackgroundImage = "../media/png/bf-bg01.png";
-    const backgroundSelect = document.getElementById("backgroundSelect");
+        // Set the default background image if the parameter is not provided
+        const defaultBackgroundImage = "../media/png/bf-bg01.png";
+        const backgroundSelect = document.getElementById("backgroundSelect");
 
-    // Set the initial background value in the select element only if a background parameter is not provided
-    if (!backgroundParam) {
-        backgroundSelect.value = defaultBackgroundImage;
-    }
+        // Set the initial background value in the select element only if a background parameter is not provided
+        if (!backgroundParam) {
+            backgroundSelect.value = defaultBackgroundImage;
+        }
 
-    // Call the functions to update the background and dice based on the query parameters
-    if (!backgroundParam) {
-        changeBackgroundToDice();
-    }
-    changeBackground();
-</script>
+        // Call the functions to update the background and dice based on the query parameters
+        if (!backgroundParam) {
+            changeBackgroundToDice();
+        }
+        changeBackground();
+    </script>
 </body>
 </html>
