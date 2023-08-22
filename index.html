@@ -1,41 +1,453 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>ThemeKings Mercury HTML and CSS Gaming Website Theme - Free Template Download</title>
+<meta name="description" content="Download Mercury at Themekings. Our FREE website theme is codied in HTML and CSS format." />
+<meta name="keywords" content="" />
+<meta content="english" name="Language"/>
+<meta content="public" http-equiv="cache-control"/>
+<meta content="index,follow" name="robots"/>
 
-    <style>
-        .text-shaddow {
-            color:blue;
-            text-shadow: .1em .1em 0px red;
-            font-size: 2rem;
+	<!--This Webpage is Based off of a Theme-->
+
+<meta property="og:url"           content="http://www.themekings.net/themestk/gamers/mercury/" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="ThemeKings Mercury HTML and CSS Gaming Website Theme - Free Template Download" />
+<meta property="og:description"   content="Download Mercury at Themekings. Our FREE website theme is codied in HTML and CSS format." />
+<meta property="og:image"         content="http://themekings.net/images/tk.jpg" />
+
+<meta name="viewport" content="width-device-width, initial-scale=1.0"/>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2984065-7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-2984065-7');
+</script>
+
+
+<!-- CSS FILES -->
+<link rel="stylesheet" type="text/css" href="css/mercury.css" />
+
+
+<!-- GOOGLE FONT -->
+<link href='http://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'/>
+
+	<style>
+
+		button{
+			color:orange;
+			 background-color: blue;
+		}
+
+		button:hover{
+			color:white;
+			background-color: red;
+			cursor: pointer;
+		}
+        /* New styles for dynamic elements */
+        .floating-fish {
+            position: relative;
+            bottom: 0;
+            left: 80%;
+            transform: translateX(-100%);
+            z-index: 999;
+            animation: floatFish 3s linear infinite alternate;
         }
-    </style>
+
+        @keyframes floatFish {
+            0% {
+				transform: translateX(-50%) translateY(20%) rotate(0deg);
+                animation-timing-function: ease-in-out;
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(15%) rotate(-1deg);
+                animation-timing-function: ease-in-out;
+            }
+
+            100% {
+				transform: translateX(-50%) translateY(10%) rotate(1deg);
+                animation-timing-function: ease-in-out;
+            }
+        }
+
+
+
+
+        .blue-area {
+            position: relative;
+            background-color: transparent;
+            border-radius: 20px;
+            overflow: hidden;
+			height: 300px;
+			z-index: 1;
+        }
+
+        .bubble {
+            position: absolute;
+            background-color: rgba(227, 238, 255, 0.7);
+            box-shadow: 0px 0px 10px 2px white;
+            border-radius: 50%;
+            animation-duration: .1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        .bubble1 {
+            width: 1rem;
+            height: 1rem;
+            top: 70px;
+            left: 70px;
+            animation-duration: 10s;
+            animation-name: moveBubble1;
+        }
+
+        .bubble2 {
+            width: 2rem;
+            height: 2rem;
+            top: 30px;
+            left: 250px;
+            animation-duration: 4s;
+            animation-name: moveBubble2;
+        }
+
+        .bubble3 {
+            width: 2rem;
+            height: 2rem;
+            top: 50px;
+            right: 200px;
+            animation-duration: 7s;
+            animation-name: moveBubble3;
+        }
+
+        .bubble4 {
+            width: 2rem;
+            height: 2rem;
+            top: 70px;
+            right: 100px;
+            animation-duration: 6s;
+            animation-name: moveBubble3;
+        }
+
+        .bubble5 {
+            width: 2rem;
+            height: 2rem;
+            top: 10px;
+            right: 380px;
+            animation-duration: 16s;
+            animation-name: moveBubble3;
+        }
+
+        .bubble6 {
+            left: 320px;
+            animation-duration: 4s;
+            animation-name: moveBubble6;
+            animation-fill-mode: forwards;
+            background-color: rgba(227, 238, 255, 0.2);
+        }
+
+        @keyframes moveBubble1 {
+            0%, 100% {
+                transform: translateY(-10);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes moveBubble2 {
+            0%, 100% {
+                transform: translateY(20);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes moveBubble3 {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+        }
+		
+        @keyframes moveBubble6 {
+            0% {
+                transform: translateY(50px);
+				height: 0rem;
+				width: 0rem;
+            }
+            20% {
+                height: 1rem;
+                width: 1rem;
+            }
+            100% {
+                transform: translateY(-90px);
+
+            }
+        }
+
+
+	</style>
+
 </head>
 <body>
-    <center>
-
-        <h1>BeegFish</h1>
-        <p>Beeg Fish, a.k.a BeegFish is a large Open Mouth Bass that is 5% bigger than the biggest fish on earth.</p>
 
 
-        <div style="border: 1rem groove purple; width: 40rem;">
-            <p class="text-shaddow">Spin the Fish.</p>
-            <div style="border: 3rem groove black; width: 20rem; background-image: url('../media/jpg/hypnatize.jpg'); background-size: 100%; height: 20rem;">
 
-            </div>
-            <p class="text-shaddow">Spin the Fish.</p>
-        </div>
 
-       
-        <div style="border:dotted; width: 20vw; margin: 4rem;">
-            <p>CLICK HERE TO SPIN THE FISH</p><br />
+	<div id="mercury-wrapper">
 
-            <a href="pages/beegfish.html" style="color: #616F40; text-shadow: 5px 5px 0px #97C62C; font-size: 3rem; background: white;  " target="_top">Beeg Fish∝</a>
-            <p>CLICK HERE TO SPIN THE FISH</p><br />
 
-        </div>
-    </center>
+		<div id="mercury-footer">
+
+
+			<div id="ft-level-1">
+
+
+			</div>
+
+
+
+			<div id="ft-level-2">
+				<div class="ft-butns-box2">
+					<div class="ft-links2">
+						<ul>
+
+							<li><a class="ft-butn2-1" href="pages/beegfish.html?background=../media/png/bf-bg-coin01.png" target="_self" title="">Coin Flip</a></li>
+							<li><a class="ft-butn2-1" href="pages/beegfish.html?dice=4" target="_self" title="">D-4</a></li>
+							<li><a class="ft-butn2-1" href="pages/beegfish.html?dice=6" target="_self" title="">D-6</a></li>
+							<li><a class="ft-butn2-1" href="pages/beegfish.html?dice=8" target="_self" title="">D-8</a></li>
+							<li><a class="ft-butn2-1" href="pages/beegfish.html?dice=20" target="_self" title="">D-20</a></li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div id="mercury-banner">
+
+			<div id="mb-level-1">
+				<div id="mb-level-1a">
+					<div id="bulbs-L"></div>
+				</div>
+				<div id="mb-level-1b">
+					<div id="electric"></div>
+				</div>
+				<div id="mb-level-1c">
+					<div id="bulbs-R"></div>
+				</div>
+			</div>
+			<div id="mb-level-2">
+				<div id="kr-lights"></div>
+			</div>
+			<div id="mb-level-3">
+				<div class="blue-area">
+					<div class="bubble bubble1"></div>
+					<div class="bubble bubble2"></div>
+					<div class="bubble bubble3"></div>
+					<div class="bubble bubble4"></div>
+					<div class="bubble bubble5"></div>
+					<div class="bubble bubble6"></div>
+
+					<div class="floating-fish">
+						<img src="media/png/fish_upscaled.png" alt="Floating Fish" style="height: 5rem;" />
+					</div>
+				</div>
+			</div>
+			<div id="mb-level-4">
+				<div id="mb-level-4a">
+					<div id="flashing-L"></div>
+				</div>
+				<div id="mb-level-4b">
+					<div id="flashing-R"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="content-area">
+
+
+
+
+			<div id="col-left">
+
+
+				<div class="Vnavbox">
+					<div class="Vnavtop">
+						<div class="VnavTitle">Let the Fish Decide</div>
+					</div>
+					<div class="Vnavmid">
+						<div class="sb-butns">
+							<ul>
+								<li><a class="sb-butn" href="pages/beegfish.html?dice=2">Roll A D-2</a></li>
+								<li><a class="sb-butn" href="pages/beegfish.html?dice=4">Roll A D-4</a></li>
+								<li><a class="sb-butn" href="pages/beegfish.html?dice=6">Roll A D-6</a></li>
+								<li><a class="sb-butn" href="pages/beegfish.html?dice=8">Roll A D-8</a></li>
+								<li><a class="sb-butn" href="pages/beegfish.html?dice=10">Roll A D-10</a></li>
+								<li><a class="sb-butn" href="pages/beegfish.html?dice=12">Roll A D-12</a></li>
+								<li><a class="sb-butn" href="pages/beegfish.html?dice=20">Roll A D-20</a></li>
+								<li><a class="sb-butn" href="pages/beegfish.html?dice=100">Roll A D-100</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="Vnavbtm"></div>
+				</div>
+
+
+
+
+
+
+				<div class="Vbox">
+					<div class="Vtop">
+						<div class="VTitle">How Beeg?</div>
+					</div>
+					<div class="Vmid">
+						<div class="VInfo">
+								<p>What makes the Beeg fish so holy, is that it is 5% bigger than the biggest fish at any momment.</p>
+								<p>Not only does this mean it is impressively large, but can be used to measure Rhincodon typus</p>
+
+						</div>
+					</div>
+					<div class="Vbtm"></div>
+				</div>
+
+
+
+
+
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div id="col-right">
+
+
+
+
+
+
+				<div class="Cbox">
+					<div class="Ctop">
+						<div class="CTitle">Who is Beeg Fish?</div>
+					</div>
+					<div class="Cmid">
+						<div class="CInfo">
+							<h2>Discover the Divine Beeg Fish</h2>
+							<p>The journey of the Cult of the Beeg Fish finds its roots in ancient maritime civilizations, where the ocean was revered for its mysticism and wonder. At the heart of this movement lies the enigmatic Beeg Fish – a creature embodying grandeur and symbolism that resonates with the essence of existence.</p>
+
+							<p>The Beeg Fish, surpassing its peers by an astounding 5%, mirrors the ocean's majesty. Its rhythmic expansion and contraction, reminiscent of waves, mirror the eternal ebb and flow that underpins existence itself.</p>
+
+							<p>Legends tell of the first followers who, in deep meditations by the shore, glimpsed otherworldly visions. These experiences birthed the cult's foundational beliefs – a faith in life's fluid journey and the wisdom of embracing change's currents.</p>
+
+
+							<p>Just as the Beeg Fish adapts to oceanic shifts, we too cultivate the resolve to embrace life's challenges and opportunities. In sync with the Beeg Fish's essence, we find courage to grow amidst uncertainty.</p>
+
+							<h2>The Sacred Ritual of Spinning</h2>
+							<p>Central to our devotion is spinning the Beeg Fish – a ritual connecting us to the divine. With reverence and pure intentions, followers forge a link with the fish's essence. Its gaze post-spin illuminates our destinies with insights from the Beeg Fish's wisdom.</p>
+
+							<p>Whispered through time, spinning ties our souls to the ocean's consciousness, offering revelations. Surrendering to the Beeg Fish, we find solace in cosmic currents favoring us.</p>
+
+							<h2>A Philosophy Rooted in Existence's Flow</h2>
+							<p>In a world ensnared by permanence, the Cult of the Beeg Fish champions fluidity's timeless teachings. Beyond terrestrial dogmas, we embody water's essence – adaptable, transformative, nurturing. Through embracing change, we unearth our authentic selves.</p>
+
+							<p>Embracing fluidity doesn't forsake stability, but grasps strength in adaptability. The Beeg Fish's undulations remind us that change is life's facet. By embracing it, we unlock boundless potential within.</p>
+
+							<h2>Embark on the Journey</h2>
+							<p>Stand poised on wisdom's precipice – ready to plunge into the Beeg Fish's depths? Whether seeking solace or abyssal insights, the Cult of the Beeg Fish extends a warm embrace. Embark on self-discovery and divine connection by casting your lots upon celestial tides.</p>
+
+							<br /><br />
+							<center>
+								<a class="spinner-link" href="pages/beegfish.html"><button class="spinner-button">Spin the Fish</button></a>
+							</center>
+
+						</div>
+					</div>
+					<div class="Cbtm"></div>
+				</div>
+
+
+
+
+
+
+				<!--
+
+					<div class="Cbox">
+						<div class="Ctop">
+							<div class="CTitle">Title Here</div>
+						</div>
+						<div class="Cmid">
+							<div class="CInfo">
+
+								<p>Aliqua occaecat cupidatat aute laboris duis ea dolor eu ea nulla voluptate excepteur cillum enim. Excepteur aute excepteur ad sit sunt nulla sit aute mollit cillum nulla. Laboris labore tempor cupidatat amet ad elit exercitation cillum Lorem ad do ullamco.</p>
+
+								<p>Eu consequat ex nostrud id nostrud in sunt. Culpa proident amet fugiat non excepteur cupidatat velit deserunt ut in.</p>
+
+								<p>Ut enim commodo eu nulla in in enim officia ea amet culpa. Adipisicing irure ut laboris ea sint voluptate sit Lorem ullamco culpa proident nisi reprehenderit.</p>
+
+							</div>
+						</div>
+						<div class="Cbtm"></div>
+					</div>
+
+	-->
+
+
+			</div>
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

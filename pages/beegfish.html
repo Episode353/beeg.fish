@@ -219,6 +219,8 @@
 
 
     <script>
+
+
         var beegFish = document.getElementById('beeg_fish');
         var valueA = 0;
         var prevAngle = 0;
@@ -298,6 +300,7 @@
             currentSpeed = 0; // Reset the current speed to 0
             document.getElementById('counter').textContent = 'Speed: 0';
         }
+
 
 
     </script>
@@ -491,5 +494,35 @@
 
         clearButton.addEventListener("click", clearCanvas);
     </script>
+<script>
+    // Parse the query parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Get the "dice" and "background" parameter values from the query parameters
+    const diceParam = urlParams.get('dice');
+    const backgroundParam = urlParams.get('background');
+
+    // Set the default dice value if the parameter is not provided or invalid
+    const defaultDiceValue = 2;
+    const diceInput = parseInt(diceParam) || defaultDiceValue;
+
+    // Set the initial dice value in the input field
+    document.getElementById("diceInput").value = diceInput;
+
+    // Set the default background image if the parameter is not provided
+    const defaultBackgroundImage = "../media/png/bf-bg01.png";
+    const backgroundSelect = document.getElementById("backgroundSelect");
+
+    // Set the initial background value in the select element only if a background parameter is not provided
+    if (!backgroundParam) {
+        backgroundSelect.value = defaultBackgroundImage;
+    }
+
+    // Call the functions to update the background and dice based on the query parameters
+    if (!backgroundParam) {
+        changeBackgroundToDice();
+    }
+    changeBackground();
+</script>
 </body>
 </html>
