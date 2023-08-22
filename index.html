@@ -2,204 +2,205 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>ThemeKings Mercury HTML and CSS Gaming Website Theme - Free Template Download</title>
-<meta name="description" content="Download Mercury at Themekings. Our FREE website theme is codied in HTML and CSS format." />
-<meta name="keywords" content="" />
-<meta content="english" name="Language"/>
-<meta content="public" http-equiv="cache-control"/>
-<meta content="index,follow" name="robots"/>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title>Beeg Fish Divine</title>
+	<meta name="description" content="Download Mercury at Themekings. Our FREE website theme is codied in HTML and CSS format." />
+	<meta name="keywords" content="" />
+	<meta content="english" name="Language" />
+	<meta content="public" http-equiv="cache-control" />
+	<meta content="index,follow" name="robots" />
 
 	<!--This Webpage is Based off of a Theme-->
 
-<meta property="og:url"           content="http://www.themekings.net/themestk/gamers/mercury/" />
-<meta property="og:type"          content="website" />
-<meta property="og:title"         content="ThemeKings Mercury HTML and CSS Gaming Website Theme - Free Template Download" />
-<meta property="og:description"   content="Download Mercury at Themekings. Our FREE website theme is codied in HTML and CSS format." />
-<meta property="og:image"         content="http://themekings.net/images/tk.jpg" />
+	<meta property="og:url" content="http://www.themekings.net/themestk/gamers/mercury/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="ThemeKings Mercury HTML and CSS Gaming Website Theme - Free Template Download" />
+	<meta property="og:description" content="Download Mercury at Themekings. Our FREE website theme is codied in HTML and CSS format." />
+	<meta property="og:image" content="http://themekings.net/images/tk.jpg" />
 
-<meta name="viewport" content="width-device-width, initial-scale=1.0"/>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2984065-7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-2984065-7');
-</script>
+	<meta name="viewport" content="width-device-width, initial-scale=1.0" />
 
 
-<!-- CSS FILES -->
-<link rel="stylesheet" type="text/css" href="css/mercury.css" />
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async=async src="https://www.googletagmanager.com/gtag/js?id=UA-2984065-7"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-2984065-7');
+	</script>
+
+	<!--Favicon-->
+	<link rel="icon" href="media/ico/favicon.ico" type="image/x-icon" />
+
+	<!-- CSS FILES -->
+	<link rel="stylesheet" type="text/css" href="css/mercury.css" />
 
 
-<!-- GOOGLE FONT -->
-<link href='http://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'/>
+	<!-- GOOGLE FONT -->
+	<link href='http://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css' />
 
 	<style>
 
-		button{
-			color:orange;
-			 background-color: blue;
+		button {
+			color: orange;
+			background-color: blue;
 		}
 
-		button:hover{
-			color:white;
-			background-color: red;
-			cursor: pointer;
+			button:hover {
+				color: white;
+				background-color: red;
+				cursor: pointer;
+			}
+		/* New styles for dynamic elements */
+		.floating-fish {
+			position: relative;
+			bottom: 0;
+			left: 80%;
+			transform: translateX(-100%);
+			z-index: 999;
+			animation: floatFish 3s linear infinite alternate;
 		}
-        /* New styles for dynamic elements */
-        .floating-fish {
-            position: relative;
-            bottom: 0;
-            left: 80%;
-            transform: translateX(-100%);
-            z-index: 999;
-            animation: floatFish 3s linear infinite alternate;
-        }
 
-        @keyframes floatFish {
-            0% {
+		@keyframes floatFish {
+			0% {
 				transform: translateX(-50%) translateY(20%) rotate(0deg);
-                animation-timing-function: ease-in-out;
-            }
+				animation-timing-function: ease-in-out;
+			}
 
-            50% {
-                transform: translateX(-50%) translateY(15%) rotate(-1deg);
-                animation-timing-function: ease-in-out;
-            }
+			50% {
+				transform: translateX(-50%) translateY(15%) rotate(-1deg);
+				animation-timing-function: ease-in-out;
+			}
 
-            100% {
+			100% {
 				transform: translateX(-50%) translateY(10%) rotate(1deg);
-                animation-timing-function: ease-in-out;
-            }
-        }
+				animation-timing-function: ease-in-out;
+			}
+		}
 
 
 
 
-        .blue-area {
-            position: relative;
-            background-color: transparent;
-            border-radius: 20px;
-            overflow: hidden;
+		.blue-area {
+			position: relative;
+			background-color: transparent;
+			border-radius: 20px;
+			overflow: hidden;
 			height: 300px;
 			z-index: 1;
-        }
+		}
 
-        .bubble {
-            position: absolute;
-            background-color: rgba(227, 238, 255, 0.7);
-            box-shadow: 0px 0px 10px 2px white;
-            border-radius: 50%;
-            animation-duration: .1s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-        }
+		.bubble {
+			position: absolute;
+			background-color: rgba(227, 238, 255, 0.7);
+			box-shadow: 0px 0px 10px 2px white;
+			border-radius: 50%;
+			animation-duration: .1s;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: infinite;
+		}
 
-        .bubble1 {
-            width: 1rem;
-            height: 1rem;
-            top: 70px;
-            left: 70px;
-            animation-duration: 10s;
-            animation-name: moveBubble1;
-        }
+		.bubble1 {
+			width: 1rem;
+			height: 1rem;
+			top: 70px;
+			left: 70px;
+			animation-duration: 10s;
+			animation-name: moveBubble1;
+		}
 
-        .bubble2 {
-            width: 2rem;
-            height: 2rem;
-            top: 30px;
-            left: 250px;
-            animation-duration: 4s;
-            animation-name: moveBubble2;
-        }
+		.bubble2 {
+			width: 2rem;
+			height: 2rem;
+			top: 30px;
+			left: 250px;
+			animation-duration: 4s;
+			animation-name: moveBubble2;
+		}
 
-        .bubble3 {
-            width: 2rem;
-            height: 2rem;
-            top: 50px;
-            right: 200px;
-            animation-duration: 7s;
-            animation-name: moveBubble3;
-        }
+		.bubble3 {
+			width: 2rem;
+			height: 2rem;
+			top: 50px;
+			right: 200px;
+			animation-duration: 7s;
+			animation-name: moveBubble3;
+		}
 
-        .bubble4 {
-            width: 2rem;
-            height: 2rem;
-            top: 70px;
-            right: 100px;
-            animation-duration: 6s;
-            animation-name: moveBubble3;
-        }
+		.bubble4 {
+			width: 2rem;
+			height: 2rem;
+			top: 70px;
+			right: 100px;
+			animation-duration: 6s;
+			animation-name: moveBubble3;
+		}
 
-        .bubble5 {
-            width: 2rem;
-            height: 2rem;
-            top: 10px;
-            right: 380px;
-            animation-duration: 16s;
-            animation-name: moveBubble3;
-        }
+		.bubble5 {
+			width: 2rem;
+			height: 2rem;
+			top: 10px;
+			right: 380px;
+			animation-duration: 16s;
+			animation-name: moveBubble3;
+		}
 
-        .bubble6 {
-            left: 320px;
-            animation-duration: 4s;
-            animation-name: moveBubble6;
-            animation-fill-mode: forwards;
-            background-color: rgba(227, 238, 255, 0.2);
-        }
+		.bubble6 {
+			left: 320px;
+			animation-duration: 4s;
+			animation-name: moveBubble6;
+			animation-fill-mode: forwards;
+			background-color: rgba(227, 238, 255, 0.2);
+		}
 
-        @keyframes moveBubble1 {
-            0%, 100% {
-                transform: translateY(-10);
-            }
+		@keyframes moveBubble1 {
+			0%, 100% {
+				transform: translateY(-10);
+			}
 
-            50% {
-                transform: translateY(-20px);
-            }
-        }
+			50% {
+				transform: translateY(-20px);
+			}
+		}
 
-        @keyframes moveBubble2 {
-            0%, 100% {
-                transform: translateY(20);
-            }
+		@keyframes moveBubble2 {
+			0%, 100% {
+				transform: translateY(20);
+			}
 
-            50% {
-                transform: translateY(-15px);
-            }
-        }
+			50% {
+				transform: translateY(-15px);
+			}
+		}
 
-        @keyframes moveBubble3 {
-            0%, 100% {
-                transform: translateY(0);
-            }
+		@keyframes moveBubble3 {
+			0%, 100% {
+				transform: translateY(0);
+			}
 
-            50% {
-                transform: translateY(-25px);
-            }
-        }
-		
-        @keyframes moveBubble6 {
-            0% {
-                transform: translateY(50px);
+			50% {
+				transform: translateY(-25px);
+			}
+		}
+
+		@keyframes moveBubble6 {
+			0% {
+				transform: translateY(50px);
 				height: 0rem;
 				width: 0rem;
-            }
-            20% {
-                height: 1rem;
-                width: 1rem;
-            }
-            100% {
-                transform: translateY(-90px);
+			}
 
-            }
-        }
+			20% {
+				height: 1rem;
+				width: 1rem;
+			}
 
-
+			100% {
+				transform: translateY(-90px);
+			}
+		}
 	</style>
 
 </head>
