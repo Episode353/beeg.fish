@@ -133,6 +133,48 @@
 
         .grid-item {
         }
+
+
+
+        @media (min-width: 1200px) {
+            #bf-controls {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                transform: translate(-50%, -50%) rotateZ(0deg);
+                top: 50%;
+                left: 70%;
+            }
+
+            #bg {
+                transform: translate(-50%, -50%) rotateZ(0deg);
+                top: 50%;
+                left: 30%;
+            }
+
+            #beeg_fish {
+                transform: translate(-50%, -50%) rotateZ(0deg);
+                top: 50%;
+                left: 30%;
+            }
+        }
+
+        @media (max-width: 1199px) {
+            #bf-controls {
+                transform: translateY( -50%);
+                transform: translateX( -50%);
+                top: 60%;
+                left: 50%;
+            }
+
+            #bg {
+                height: 50%;
+            }
+
+            #beeg_fish {
+                height: 50%;
+            }
+        }
     </style>
 
     <script>
@@ -176,8 +218,7 @@
 
        
         <center>
-            <!-- Add the minus button -->
-            <button id="minimizeButton" onclick="minimizeControls()" style="width: 2rem;height: 2rem;  left:-40%; position: relative; font-size: 2rem; background-color: green;">-</button>
+          
             <div class="grid-container">
                 <!--Grid  Box 1-->
                 <div class="grid-item" id="grid-item1">
@@ -187,7 +228,9 @@
                     <button onclick="stopSpin()">Stop</button>
                     <button id="clear">Clear</button>
 
+                    <label for="opacitySlider">Opacity:</label>
 
+                    <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value="1" style="width:100%;" oninput="adjustOpacity()">
 
                 </div>
 
@@ -227,14 +270,12 @@
 
             </div>
 
-            <label for="opacitySlider">Opacity:</label>
-
-            <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value="1" style="width:100%;" oninput="adjustOpacity()">
+           
 
 
 
 
-            <a href="../index.html" style="color: #0D47A1; text-shadow: 5px 5px 0px #fec652; font-family: daydream;" target="_top">Home</a>
+        
         </center>
     </div>
 
