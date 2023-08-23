@@ -249,10 +249,16 @@
                         <option value="../media/png/bf-bg04.png">BG-4</option>
                         <option value="../media/png/bf-bg05.png">BG-5</option>
                     </select>
-                    <br />
-                    <label for="diceInput">Dice:</label>
-                    <br />
-                    <input type="number" id="diceInput" min="2" value="2" oninput="changeBackground()">
+
+                    <div class="dice-buttons" style=" border: 3px groove lightgrey; margin: 1rem;">
+                        <label for="diceInput">Dice:</label>
+                        <input type="number" id="diceInput" min="2" value="2" oninput="changeBackground()"><br />
+                        <button onclick="changeDiceValue(-1)" style="width: 2rem; height: 2rem;">-1</button>
+                        <button onclick="changeDiceValue(1)" style="width: 2rem; height: 2rem;">+1</button>
+                        <br />
+                        <label for="randomDicePosition">Dice Shuffle:</label>
+                        <input type="checkbox" id="randomDicePosition" onchange="toggleRandomDicePosition()">
+                    </div>
                     <div>
                         <label for="speedMultiplier">Speed Multiplier:</label>
                         <input type="number" id="speedMultiplier" min="0" step="0.01" value="3">
@@ -264,8 +270,6 @@
                         <input type="number" id="speedFalloff" min="0" max="1" step="0.001" value="0.98">
                     </div>
 
-                    <label for="randomDicePosition">Dice Shuffle:</label>
-                    <input type="checkbox" id="randomDicePosition" onchange="toggleRandomDicePosition()">
                 </div>
 
 
@@ -416,6 +420,15 @@
         }
 
 
+        // Function to change the dice value by a specified amount
+        function changeDiceValue(delta) {
+            var diceInput = document.getElementById("diceInput");
+            var newValue = parseInt(diceInput.value) + delta;
+            if (newValue >= 2) {
+                diceInput.value = newValue;
+                changeBackgroundToDice();
+            }
+        }
 
         document.getElementById("diceInput").addEventListener("input", function () {
             changeBackgroundToDice();
