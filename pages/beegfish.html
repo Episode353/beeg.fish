@@ -122,14 +122,14 @@
             padding: 1rem;
             margin-bottom: 15vh;
             background: #B18C79;
-            width: 20rem;
+            width: 35rem;
         }
 
 
 
         .grid-container {
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: auto auto auto;
         }
 
 
@@ -138,14 +138,16 @@
 
 
 
-        @media (min-width: 1200px) {
+
+
+        @media (min-width: 1500px) {
             #bf-controls {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
                 transform: translate(-50%, -50%) rotateZ(0deg);
                 top: 50%;
-                left: 70%;
+                left: 75%;
             }
 
             #bg {
@@ -163,7 +165,7 @@
             }
         }
 
-        @media (max-width: 1199px) {
+        @media (max-width: 1499px) {
             #bf-controls {
                 transform: translateY( -50%);
                 transform: translateX( -50%);
@@ -178,6 +180,23 @@
             #beeg_fish {
                 height: 50%;
             }
+        }
+
+        .dicerollbtn {
+            position: relative;
+            align-self: center;
+            width: 90%;
+            height: 4rem;
+            background-color: #799EB1;
+            border: 3px groove #92AAFC;
+            color:black;
+            text-shadow: 1px 1px 2px white;
+        }
+
+        .dicerollbtnBox {
+            display: grid;
+            grid-template-columns: auto auto;
+            width: 15rem;
         }
     </style>
 
@@ -268,23 +287,32 @@
                     <div>
                         <label for="speedFalloff">Speed Falloff:</label>
                         <br />
-                        <input type="number" id="speedFalloff" min="0" max="1" step="0.001" value="0.98">
+                        <input type="number" id="speedFalloff" min="0" max="1" step="0.001" value="0.9">
                     </div>
 
+                </div>
+
+                <div class="dicerollbtnBox" id="grid-item3">
+                    <!-- Add buttons for dice values -->
+                    <button onclick="rollDice(2)" class="dicerollbtn">D2</button>
+                    <button onclick="rollDice(4)" class="dicerollbtn">D4</button>
+                    <button onclick="rollDice(6)" class="dicerollbtn">D6</button>
+                    <button onclick="rollDice(8)" class="dicerollbtn">D8</button>
+                    <button onclick="rollDice(10)" class="dicerollbtn">D10</button>
+                    <button onclick="rollDice(12)" class="dicerollbtn">D12</button>
+                    <button onclick="rollDice(20)" class="dicerollbtn">D20</button>
+                    <button onclick="rollDice(100)" class="dicerollbtn">D100</button>
+
+                </div>
                 </div>
 
 
 
 
-            </div>
-
-           
 
 
 
-
-        
-        </center>
+</center>
     </div>
 
 
@@ -301,6 +329,26 @@
         var animationFrameId;
         var currentSpeed = 0; // Add a variable to store the current speed
 
+        // Add a variable to store the current dice value
+        var currentDiceValue = 2;
+
+        // Function to change the dice value and trigger a roll
+        function rollDice(dice) {
+            currentDiceValue = dice;
+            changeBackgroundToDice();
+            spinBeegFish();
+        }
+
+        // Function to update the displayed dice value
+        function updateDiceValue() {
+            var diceInput = document.getElementById("diceInput");
+            diceInput.value = currentDiceValue;
+        }
+
+        // Update the initial dice value
+        updateDiceValue();
+
+
         function spinBeegFish() {
             if (animationFrameId) {
                 cancelAnimationFrame(animationFrameId);
@@ -309,7 +357,11 @@
             var speedMultiplier = parseFloat(document.getElementById("speedMultiplier").value);
             currentSpeed += speed * speedMultiplier;
             spin();
+            updateDiceValue(); // Update the displayed dice value
+            changeBackground();
+
         }
+
 
 
         function spin() {
