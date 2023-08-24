@@ -119,10 +119,10 @@
             transform: translate(-0px, 350px);
             border: 3px groove #92AAFC;
             border-radius: 2rem;
-            padding: 1rem;
             margin-bottom: 15vh;
             background: #B18C79;
-            width: 35rem;
+            padding: 1rem;
+            margin: 0rem;
         }
 
 
@@ -148,6 +148,7 @@
                 transform: translate(-50%, -50%) rotateZ(0deg);
                 top: 50%;
                 left: 75%;
+
             }
 
             #bg {
@@ -171,6 +172,8 @@
                 transform: translateX( -50%);
                 top: 60%;
                 left: 50%;
+                width: 100%;
+                height: 50%;
             }
 
             #bg {
@@ -196,7 +199,7 @@
         .dicerollbtnBox {
             display: grid;
             grid-template-columns: auto auto;
-            width: 15rem;
+            width: 10rem;
         }
     </style>
 
@@ -250,7 +253,7 @@
                     <button onclick="spinBeegFish()">Spin</button>
                     <button onclick="stopSpin()">Stop</button>
                     <button id="clear">Clear</button>
-
+                    <br />
                     <label for="opacitySlider">Opacity:</label>
 
                     <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value="1" style="width:100%;" oninput="adjustOpacity()">
@@ -270,7 +273,7 @@
                         <option value="../media/png/bf-bg05.png">BG-5</option>
                     </select>
 
-                    <div class="dice-buttons" style=" border: 3px groove lightgrey; margin: 1rem;">
+                    <div class="dice-buttons" >
                         <label for="diceInput">Dice:</label>
                         <input type="number" id="diceInput" min="2" value="2" oninput="changeBackground()"><br />
                         <button onclick="changeDiceValue(-1)" style="width: 2rem; height: 2rem;">-1</button>
@@ -281,6 +284,7 @@
                     </div>
                     <div>
                         <label for="speedMultiplier">Speed Multiplier:</label>
+                        <br />
                         <input type="number" id="speedMultiplier" min="0" step="0.01" value="3">
                     </div>
 
