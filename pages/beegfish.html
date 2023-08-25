@@ -89,6 +89,7 @@
             font-size: 14px;
             padding: 5px;
             margin-top: 5px;
+            text-align: center;
         }
 
         label {
@@ -282,7 +283,9 @@
 
                     <div class="dice-buttons">
                         <label for="diceInput">Dice:</label>
-                        <input type="number" id="diceInput" min="2" value="2" oninput="changeBackground()"><br />
+                        <br />
+                        <input type="number" id="diceInput" min="2" value="2" oninput="changeBackground()">
+                        <br />
                         <button onclick="changeDiceValue(-1)" style="width: 2rem; height: 2rem;">-1</button>
                         <button onclick="changeDiceValue(1)" style="width: 2rem; height: 2rem;">+1</button>
                         <br />
