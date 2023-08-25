@@ -681,36 +681,36 @@
         canvas.addEventListener("touchmove", draw);
 
         clearButton.addEventListener("click", clearCanvas);
+
+
+
+
     </script>
     <script>
         // Parse the query parameters from the URL
         const urlParams = new URLSearchParams(window.location.search);
 
-        // Get the "dice" and "background" parameter values from the query parameters
+        // Get the "dice" parameter value from the query parameters
         const diceParam = urlParams.get('dice');
-        const backgroundParam = urlParams.get('background');
 
-        // Set the default dice value if the parameter is not provided or invalid
-        const defaultDiceValue = 2;
-        const diceInput = parseInt(diceParam) || defaultDiceValue;
-
-        // Set the initial dice value in the input field
-        document.getElementById("diceInput").value = diceInput;
-
-        // Set the default background image if the parameter is not provided
-        const defaultBackgroundImage = "../media/png/bf-bg01.png";
-        const backgroundSelect = document.getElementById("backgroundSelect");
-
-        // Set the initial background value in the select element only if a background parameter is not provided
-        if (!backgroundParam) {
-            backgroundSelect.value = defaultBackgroundImage;
-        }
-
-        // Call the functions to update the background and dice based on the query parameters
-        if (!backgroundParam) {
+        // Check if the "dice" query parameter is present and valid
+        if (diceParam !== null && /^\d+$/.test(diceParam)) {
+            // Set the background to the dice image and update the dice value
+            const diceValue = parseInt(diceParam);
+            document.getElementById('diceInput').value = diceValue;
             changeBackgroundToDice();
+        } else {
+            // Set the default background image
+            const defaultBackgroundImage = "../media/png/bf-bg01.png";
+            const backgroundSelect = document.getElementById("backgroundSelect");
+            backgroundSelect.value = defaultBackgroundImage;
+            changeBackground();
         }
-        changeBackground();
+
+
+
+
+
     </script>
 </body>
 </html>
