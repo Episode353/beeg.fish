@@ -56,6 +56,7 @@
             user-select: none;
         }
 
+
         #counter {
             font-size: 1.2rem;
             margin-bottom: 10px;
@@ -586,23 +587,24 @@
 
         function generateDiceBackground(diceSections) {
             var canvas = document.createElement("canvas");
-            canvas.width = canvas.height = 500; // Set the canvas size
+            canvas.width = canvas.height = 1500; // Increase the canvas size for higher quality
             var context = canvas.getContext("2d");
             var centerX = canvas.width / 2;
             var centerY = canvas.height / 2;
             var radius = canvas.width / 2;
             var colors = [
-                "#FF5733", // Aperol Orange
-                "#33FF33", // Olive Green
-                "#3377FF", // Tuscan Blue
-                "#FFCC33", // Lemon Gold
-                "#9933FF", // Amethyst Purple
-                "#33FFFF", // Venetian Canal Blue
-                "#FFA500", // Sicilian Citrus
-                "#8B4513", // Espresso Brown
-                "#FFD700", // Roman Empire Gold
-                "#6B8E23"  // Mediterranean Olive
+                "rgba(255, 87, 51, 0.9)",  // Aperol Orange
+                "rgba(51, 255, 51, 0.9)",  // Olive Green
+                "rgba(51, 119, 255, 0.9)", // Tuscan Blue
+                "rgba(255, 204, 51, 0.9)", // Lemon Gold
+                "rgba(153, 51, 255, 0.9)", // Amethyst Purple
+                "rgba(51, 255, 255, 0.9)", // Venetian Canal Blue
+                "rgba(255, 165, 0, 0.9)",  // Sicilian Citrus
+                "rgba(139, 69, 19, 0.9)",  // Espresso Brown
+                "rgba(255, 215, 0, 0.9)",  // Roman Empire Gold
+                "rgba(107, 142, 35, 0.9)"  // Mediterranean Olive
             ];
+
 
 
 
@@ -610,9 +612,9 @@
 
             var angle = (360 / diceSections) * (Math.PI / 180);
             context.clearRect(0, 0, canvas.width, canvas.height);
+            var fontSize = Math.min(150, 2500 / diceSections); // Adjust the font size for higher resolution
+            context.imageSmoothingEnabled = true; // Enable antialiasing
 
-            // Calculate font size based on the number of segments
-            var fontSize = Math.min(70, 700 / diceSections); // Adjust the max font size as needed
 
             var colorsCopy = colors.slice(); // Create a copy of the colors array
             var labels = Array.from({ length: diceSections }, (_, i) => i + 1); // Create an array of labels
