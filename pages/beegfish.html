@@ -163,7 +163,7 @@
                 transform: translate(-50%, -50%) rotateZ(0deg);
                 top: 50%;
                 left: 30%;
-                height: 75%;
+                height: 85%;
             }
         }
 
@@ -186,7 +186,7 @@
             }
 
             #beeg_fish {
-                height: 50%;
+                height: 53%;
             }
         }
 
@@ -262,7 +262,9 @@
                     <label for="opacitySlider">Opacity:</label>
 
                     <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value="1" style="width:100%;" oninput="adjustOpacity()">
-
+                    <label for="checkbox">Arrow:</label>
+                    <br />
+                    <input type="checkbox" id="arrowCheckbox">
                 </div>
 
                 <!--Grid  Box 2-->
@@ -278,7 +280,7 @@
                         <option value="../media/png/bf-bg05.png">BG-5</option>
                     </select>
 
-                    <div class="dice-buttons" >
+                    <div class="dice-buttons">
                         <label for="diceInput">Dice:</label>
                         <input type="number" id="diceInput" min="2" value="2" oninput="changeBackground()"><br />
                         <button onclick="changeDiceValue(-1)" style="width: 2rem; height: 2rem;">-1</button>
@@ -298,6 +300,7 @@
                         <br />
                         <input type="number" id="speedFalloff" min="0" max="1" step="0.001" value="0.9">
                     </div>
+
 
                 </div>
 
@@ -547,6 +550,22 @@
 
 
 
+        // Add this code within your existing <script> tag
+
+        // Function to update the image source based on the checkbox
+        function updateImageSource() {
+            var beegFish = document.getElementById('beeg_fish');
+            var arrowCheckbox = document.getElementById('arrowCheckbox');
+
+            if (arrowCheckbox.checked) {
+                beegFish.src = "../media/png/spinner1_arrow.png";
+            } else {
+                beegFish.src = "../media/png/spinner1.png";
+            }
+        }
+
+        // Add an event listener to the checkbox to trigger the update
+        document.getElementById('arrowCheckbox').addEventListener('change', updateImageSource);
 
 
 
