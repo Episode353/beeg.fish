@@ -351,6 +351,7 @@
         // Function to change the dice value and trigger a roll
         function rollDice(dice) {
             currentDiceValue = dice;
+            updateDiceValue(); 
             spinBeegFish();
             spinBeegFish();
         }
@@ -372,7 +373,7 @@
             var speed = Math.floor(Math.random() * (50 - 25 + 1) + 25);
             var speedMultiplier = parseFloat(document.getElementById("speedMultiplier").value);
             currentSpeed += speed * speedMultiplier;
-            spin();ss
+            spin();
             changeBackground();
 
         }
@@ -712,6 +713,17 @@
         }
 
 
+
+
+        // Get the "background" parameter value from the query parameters
+        const backgroundParam = urlParams.get('background');
+
+        // Check if the "background" query parameter is present and valid
+        if (backgroundParam !== null) {
+            // Set the background image to the specified URL
+            const bgImage = document.getElementById('bg');
+            bgImage.src = backgroundParam;
+        }
 
 
 
