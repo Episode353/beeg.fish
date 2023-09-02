@@ -352,7 +352,7 @@
         function rollDice(dice) {
             currentDiceValue = dice;
             updateDiceValue(); 
-            spinBeegFish();
+            changeBackgroundToDice();
             spinBeegFish();
         }
 
@@ -374,7 +374,6 @@
             var speedMultiplier = parseFloat(document.getElementById("speedMultiplier").value);
             currentSpeed += speed * speedMultiplier;
             spin();
-            changeBackground();
 
         }
 
