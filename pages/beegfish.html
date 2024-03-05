@@ -25,12 +25,22 @@
             position: absolute;
             top: 30%;
             left: 50%;
-            transform: translate(-50%, -50%) rotateZ(0deg);
             max-height: 100%;
             z-index: 1;
             pointer-events: none;
             user-select: none;
             animation: glow 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            will-change: transform; /* Enable hardware acceleration */
+        }
+
+        #hat {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            max-height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            user-select: none;
             will-change: transform; /* Enable hardware acceleration */
         }
 
@@ -60,6 +70,7 @@
         #counter {
             font-size: 1.2rem;
             margin-bottom: 10px;
+            width: 10rem;
         }
 
         button {
@@ -136,10 +147,6 @@
         }
 
 
-        .grid-item {
-        }
-
-
 
 
 
@@ -161,8 +168,8 @@
                 height: 80%;
             }
 
-            #beeg_fish {
-                transform: translate(-50%, -50%) rotateZ(0deg);
+            #beeg_fish, #hat {
+                transform: translate(-50%, -50%) rotateZ(-90deg);
                 top: 50%;
                 left: 30%;
                 height: 85%;
@@ -173,7 +180,7 @@
             #bf-controls {
                 transform: translateY( -50%);
                 transform: translateX( -50%);
-                top: 60%;
+                bottom: 0px;
                 left: 50%;
                 width: 100%;
                 border-top: .3rem groove #92AAFC;
@@ -181,14 +188,18 @@
                 border-left: none;
                 border-bottom: none;
                 border-radius: 0rem;
+                height: 45%;
+                padding: 0px;
+
             }
 
             #bg {
                 height: 50%;
             }
 
-            #beeg_fish {
+            #beeg_fish, #hat {
                 height: 53%;
+                transform: translate(-50%, -50%) rotateZ(-90deg);
             }
         }
 
@@ -235,6 +246,9 @@
 
 
     <img id="beeg_fish" src="../media/png/spinner1.png?V=2" alt="Beeg Fish Not Found">
+    <!--It is Very Important the Hat Png is the correct Size-->
+    <!--It can be any width, but the Height bust be the same as the spinner1.png-->
+    <img id="hat" src="">
     <img id="bg" src="../media/png/bf-bg01.png" alt="Beeg Fish Not Found">
     <canvas id="canvas"></canvas>
     <audio id="spinSound" src="../media/mp3/spin.mp3"></audio>
@@ -248,10 +262,7 @@
 
 
     <div id="bf-controls">
-
-       
         <center>
-          
             <div class="grid-container">
                 <!--Grid  Box 1-->
                 <div class="grid-item" id="grid-item1">
@@ -270,6 +281,7 @@
                 </div>
 
                 <!--Grid  Box 2-->
+                <!--Background Select-->
                 <div class="grid-item" id="grid-item2">
                     <label for="backgroundSelect">Background:</label>
                     <select id="backgroundSelect" onchange="changeBackground()">
@@ -281,29 +293,50 @@
                         <option value="../media/png/bf-bg04.png">BG-4</option>
                         <option value="../media/png/bf-bg05.png">BG-5</option>
                     </select>
+                </br>
+                    
+                <!--Hat Select-->
+                <label for="hatSelect">Hat:</label></br>
+                <select id="hatSelect" onchange="changeHat()">
+                    <option value="">None</option>
+                    <option value="../media/png/hat_02.png">Amish Hat</option>
+                    <option value="../media/png/hat_03.png">Cowboy Hat</option>
+                    <option value="../media/png/hat_04.png">#1 Hat</option>
+                    <option value="../media/png/hat_05.png">Christmas Hat</option>
+                    <option value="../media/png/hat_06.png">Towering Pillar of Hats</option>
+                    <option value="../media/png/hat_07.png">Autism Awareness Hat</option>
+                    <option value="../media/png/hat_08.png">Feesh Day Hat</option>
+                    <!--Possible other Hat ideas
+                        - Rain Cloud
+                        - A really big Brain
+                        - doug dimmadome
+                        - Fish fear me
+                    -->
+                </select>
 
-                    <div class="dice-buttons">
-                        <label for="diceInput">Dice:</label>
-                        <br />
-                        <input type="number" id="diceInput" min="2" value="2" oninput="changeBackground()">
-                        <br />
-                        <button onclick="changeDiceValue(-1)" style="width: 2rem; height: 2rem;">-1</button>
-                        <button onclick="changeDiceValue(1)" style="width: 2rem; height: 2rem;">+1</button>
-                        <br />
-                        <label for="randomDicePosition">Dice Shuffle:</label>
-                        <input type="checkbox" id="randomDicePosition" onchange="toggleRandomDicePosition()">
-                    </div>
-                    <div>
-                        <label for="speedMultiplier">Speed Multiplier:</label>
-                        <br />
-                        <input type="number" id="speedMultiplier" min="0" step="0.01" value="3">
-                    </div>
+                <div class="dice-buttons">
+                    <label for="diceInput">Dice:</label>
+                    <br />
+                    <input type="number" id="diceInput" min="2" value="2" oninput="changeBackground()">
+                    <br />
+                    <button onclick="changeDiceValue(-1)" style="width: 2rem; height: 2rem;">-1</button>
+                    <button onclick="changeDiceValue(1)" style="width: 2rem; height: 2rem;">+1</button>
+                    <br />
+                    <label for="randomDicePosition">Dice Shuffle:</label>
+                    <input type="checkbox" id="randomDicePosition" onchange="toggleRandomDicePosition()">
+                </div>
 
-                    <div>
-                        <label for="speedFalloff">Speed Falloff:</label>
-                        <br />
-                        <input type="number" id="speedFalloff" min="0" max="1" step="0.001" value="0.9">
-                    </div>
+                <div>
+                    <label for="speedMultiplier">Speed Multiplier:</label>
+                    <br />
+                    <input type="number" id="speedMultiplier" min="0" step="0.01" value="3">
+                </div>
+
+                <div>
+                    <label for="speedFalloff">Speed Falloff:</label>
+                    <br />
+                    <input type="number" id="speedFalloff" min="0" max="1" step="0.001" value="0.9">
+                </div>
 
 
                 </div>
@@ -321,22 +354,13 @@
 
                 </div>
                 </div>
-
-
-
-
-
-
-
-</center>
+        </center>
     </div>
 
 
-
     <script>
-
-
         var beegFish = document.getElementById('beeg_fish');
+        var hat = document.getElementById('hat');
         var valueA = 0;
         var prevAngle = 0;
         var spinSound = document.getElementById('spinSound');
@@ -389,6 +413,7 @@
 
                 valueA = (valueA + currentSpeed * deltaTime / 10) % 360;
                 beegFish.style.transform = 'translate(-50%, -50%) rotateZ(' + valueA + 'deg)';
+                hat.style.transform = beegFish.style.transform;
                 currentSpeed *= getSpeedFalloff(); // Apply the speed falloff value
 
                 document.getElementById('counter').textContent = 'Speed: ' + currentSpeed.toFixed(2);
@@ -518,6 +543,10 @@
             var beegFishElement = document.getElementById("beeg_fish");
             beegFishElement.style.opacity = 0.75; // Set the desired opacity value
 
+            // Adjust the opacity of the "hat" element
+            var hatElement = document.getElementById("hat");
+            hatElement.style.opacity = 0.75; // Set the desired opacity value
+
             // Update the opacity slider value and display
             var opacitySlider = document.getElementById("opacitySlider");
             opacitySlider.value = 0.5;
@@ -539,6 +568,14 @@
                 // Adjust the opacity of the "beeg_fish" element
                 var beegFishElement = document.getElementById("beeg_fish");
                 beegFishElement.style.opacity = 0.5; // Set the desired opacity value
+
+                // Adjust the opacity of the "hat" element
+                var hatElement = document.getElementById("hat");
+                hatElement.style.opacity = 0.5; // Set the desired opacity value
+
+                // Update the opacity slider value and display
+                var opacitySlider = document.getElementById("opacitySlider");
+                opacitySlider.value = 0.5;
             } else {
                 // Set the selected background image for non-dice options
                 bgImage.src = selectElement.value;
@@ -546,9 +583,22 @@
                 // Reset the opacity of the "beeg_fish" element
                 var beegFishElement = document.getElementById("beeg_fish");
                 beegFishElement.style.opacity = 1; // Reset the opacity
+
+                // Adjust the opacity of the "hat" element
+                var hatElement = document.getElementById("hat");
+                hatElement.style.opacity = 1; // Set the desired opacity value
+
+                // Update the opacity slider value and display
+                var opacitySlider = document.getElementById("opacitySlider");
+                opacitySlider.value = 1;
             }
         }
 
+        function changeHat(){
+            var selectElement = document.getElementById("hatSelect");
+            var hat = document.getElementById("hat");
+            hat.src = selectElement.value;
+        }
 
 
 
@@ -658,7 +708,9 @@
         function adjustOpacity() {
             var opacitySlider = document.getElementById("opacitySlider");
             var beegFishElement = document.getElementById("beeg_fish");
+            var hatElement = document.getElementById("hat");
             beegFishElement.style.opacity = opacitySlider.value;
+            hatElement.style.opacity = opacitySlider.value;
         }
 
 
